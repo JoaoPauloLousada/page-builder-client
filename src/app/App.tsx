@@ -5,7 +5,6 @@ import Container from "../components/bootstrap/Container/Container";
 import Col from "../components/bootstrap/Col/Col";
 
 function App() {
-  const Component = Row;
   return (
     <div className="App">
       <Container>
