@@ -1,11 +1,8 @@
-import React, { ReactNode } from "react";
+import React from "react";
+import { Props, getClasses } from "./RowHelper";
 
-interface Props {
-  children: ReactNode;
-}
-
-const Row: React.FC<Props> = ({ children }: Props) => {
-  return <div className="row">{children}</div>;
+const Row: React.FC<Props> = ({ children, customClass }: Props) => {
+  return <div className={getClasses(customClass)}>{children}</div>;
 };
 
 export default Row;
