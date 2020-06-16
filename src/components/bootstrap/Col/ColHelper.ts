@@ -12,7 +12,6 @@ export interface Props {
 export const classPrefix = ["", "sm-", "md-", "lg-", "xl-"];
 
 export const getClasses = (...sizes: Array<number | undefined>): string => {
-  console.log(sizes);
   return sizes.reduce((acc, curr, idx) => {
     return `${acc}${curr ? ` col-${classPrefix[idx]}${curr}` : ""}`;
   }, "");
