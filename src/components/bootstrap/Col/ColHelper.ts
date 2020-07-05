@@ -1,12 +1,14 @@
 import { ReactNode } from "react";
 
 export interface Props {
-  children: ReactNode;
+  children?: ReactNode;
   xs?: number;
   sm?: number;
   md?: number;
   lg?: number;
   xl?: number;
+  data_key?: string;
+  droppable?: boolean;
 }
 
 export const classPrefix = ["", "sm-", "md-", "lg-", "xl-"];

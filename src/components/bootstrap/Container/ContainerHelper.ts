@@ -4,6 +4,8 @@ export interface Props {
   children: ReactNode;
   fluid?: boolean;
   customClass?: string;
+  data_key?: string;
+  droppable?: boolean;
 }
 
 export const getCustomClass = (customClass?: string): string =>

@@ -1,26 +1,47 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import IBComponentObject from '../../components/bootstrap/interfaces/IBComponentObject'
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import IBComponentObject from "../../components/bootstrap/interfaces/IBComponentObject";
 
 interface IComponentsState {
-  components: Array<IBComponentObject>
+  components: Array<IBComponentObject>;
 }
 
 const INITIAL_STATE: IComponentsState = {
   components: [],
-}
+};
+
+const findParent = (
+  component: IBComponentObject,
+  action: PayloadAction<IBComponentObject>
+) => {
+  if (component.id === action.payload.parentId) {
+    if (component.children) component.children.push(action.payload);
+    else component.children = [action.payload];
+    return true;
+  }
+  if (component.children && component.children.length > 0) {
+    for (const comp of component.children) {
+      if (findParent(comp, action)) return true;
+    }
+  }
+  return false;
+};
 
 const componentsSlice = createSlice({
-  name: 'ui',
+  name: "ui",
   initialState: INITIAL_STATE,
   reducers: {
     updateComponents(state, action: PayloadAction<IBComponentObject>) {
-      state.components = [...state.components, action.payload]
+      if (action.payload.parentId === "CANVAS") {
+        state.components = [...state.components, action.payload];
+        return;
+      }
+      for (const component of state.components) {
+        if (findParent(component, action)) return;
+      }
     },
-  }
-})
+  },
+});
 
-export const {
-  updateComponents,
-} = componentsSlice.actions
+export const { updateComponents } = componentsSlice.actions;
 
-export default componentsSlice.reducer
+export default componentsSlice.reducer;

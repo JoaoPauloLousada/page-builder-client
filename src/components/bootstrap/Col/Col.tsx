@@ -1,26 +1,44 @@
-import React, { useRef } from "react";
+import React from "react";
+import { useDrop, DropTargetMonitor } from "react-dnd";
 import { Props, getClasses } from "./ColHelper";
-import { useDrag } from 'react-dnd'
-import { useDrop } from 'react-dnd'
 import DraggableTypes from "../../../app/Dnd/DraggableTypes.enum";
-import { generateID } from "../../../utils/id";
+import IBComponentObject from "../interfaces/IBComponentObject";
+import { useDispatch } from "react-redux";
+import { updateComponents } from "../../../store/components";
+import { editModeStyle } from "../../../utils/style";
 
-const Col: React.FC<Props> = ({ children, xs, sm, md, lg, xl }: Props) => {
+const Col: React.FC<Props> = ({
+  children,
+  xs,
+  sm,
+  md,
+  lg,
+  xl,
+  data_key,
+  droppable = true,
+}: Props) => {
+  const dispatch = useDispatch();
   const classes = getClasses(xs, sm, md, lg, xl);
 
-  const ref = useRef<HTMLDivElement>(null);
+  const [{ isOver, ...collectedProps }, drop] = useDrop({
+    accept: DraggableTypes.GRID,
+    drop: (e: { type: string; component: IBComponentObject }, m) => {
+      if (!droppable) return;
+      if (!m.didDrop()) {
+        e.component.parentId = data_key;
+        dispatch(updateComponents(e.component));
+      }
+    },
+    collect: (monitor: DropTargetMonitor) => ({
+      isOver: !!monitor.isOver(),
+    }),
+  });
 
-  const [collectedDragProps, drag] = useDrag({
-    item: { id: generateID(), type: DraggableTypes.GRID }
-  })
-
-  const [collectedDropProps, drop] = useDrop({
-    accept: [DraggableTypes.GRID]
-  })
-
-  drag(drop(ref))
-
-  return <div className={`col${classes}`} ref={ref}>{children}</div>;
+  return (
+    <div className={`col${classes}`} ref={drop} style={editModeStyle()}>
+      {children}
+    </div>
+  );
 };
 
 export default Col;
