@@ -1,4 +1,5 @@
 import React, { ReactNode, useState } from "react";
+import TreeView from "./TreeView";
 
 interface Props {
   canvas?: ReactNode;
@@ -57,8 +58,10 @@ export default function Board({ canvas, componentsArea }: Props) {
       >
         {componentsArea}
       </div>
-      <div className={`w-100${activeTab !== IActiveTab.TREE ? " d-none" : ""}`}>
-        TREE AREA
+      <div
+        className={`w-100${activeTab !== IActiveTab.TREE ? " d-none" : ""} p-2`}
+      >
+        <TreeView />
       </div>
     </>
   );

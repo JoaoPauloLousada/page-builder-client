@@ -1,4 +1,5 @@
 export const editModeStyle = () => ({
   border: "2px dashed #ccc",
-  minHeight: "4rem",
+  paddingTop: "2rem",
+  paddingBottom: "2rem",
 });

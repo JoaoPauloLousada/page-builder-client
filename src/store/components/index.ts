@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import IBComponentObject from "../../components/bootstrap/interfaces/IBComponentObject";
+import { remove } from "./helper";
 
 interface IComponentsState {
   components: Array<IBComponentObject>;
@@ -39,9 +40,12 @@ const componentsSlice = createSlice({
         if (findParent(component, action)) return;
       }
     },
+    removeComponent(state, action: PayloadAction<string>) {
+      state.components = remove(state.components, action.payload);
+    },
   },
 });
 
-export const { updateComponents } = componentsSlice.actions;
+export const { updateComponents, removeComponent } = componentsSlice.actions;
 
 export default componentsSlice.reducer;
