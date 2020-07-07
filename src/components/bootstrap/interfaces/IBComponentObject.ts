@@ -5,7 +5,7 @@ interface IBComponentObject {
   name: string;
   type: BComponentType;
   parentId?: string;
-  children?: IBComponentObject[];
+  children?: string[];
 }
 
 export default IBComponentObject;

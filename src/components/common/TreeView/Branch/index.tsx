@@ -1,14 +1,19 @@
 import React, { useCallback } from "react";
 import { IoIosRemoveCircleOutline } from "react-icons/io";
 import IBComponentObject from "../../../bootstrap/interfaces/IBComponentObject";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { removeComponent } from "../../../../store/components";
+import { getComponent } from "../../../../store/components/helper";
+import { RootState } from "../../../../store/rootReducer";
 interface IBranchProps {
   component: IBComponentObject;
 }
 
 const Branch = ({ component }: IBranchProps) => {
   const dispatch = useDispatch();
+  const { components: componentsTree } = useSelector(
+    (state: RootState) => state.components
+  );
 
   const remove = useCallback(() => {
     dispatch(removeComponent(component.id));
@@ -25,7 +30,10 @@ const Branch = ({ component }: IBranchProps) => {
       {component.children && component.children.length > 0 && (
         <div className="pl-4">
           {component.children.map((child) => (
-            <Branch component={child} key={child.id} />
+            <Branch
+              component={getComponent(componentsTree, child)}
+              key={child}
+            />
           ))}
         </div>
       )}

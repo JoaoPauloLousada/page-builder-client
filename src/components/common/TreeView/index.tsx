@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../store/rootReducer";
 import Branch from "./Branch";
+import { getFirstLevelNodes } from "../../../store/components/helper";
 
 export default function TreeView() {
   const { components: componentsTree } = useSelector(
@@ -10,7 +11,7 @@ export default function TreeView() {
 
   return (
     <div>
-      {componentsTree.map((component) => (
+      {getFirstLevelNodes(componentsTree).map((component) => (
         <div className="py-2" key={component.id}>
           <Branch component={component} />
         </div>
