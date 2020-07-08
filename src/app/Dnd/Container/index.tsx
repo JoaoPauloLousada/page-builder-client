@@ -3,10 +3,11 @@ import { generateID } from "../../../utils/id";
 import BComponentType from "../../../components/bootstrap/enums/BComponentType.enum";
 import { useDrag } from "react-dnd";
 import DraggableTypes from "../DraggableTypes.enum";
-import IBComponentObject from "../../../components/bootstrap/interfaces/IBComponentObject";
+import { IBComponentObjectDraggable } from "../intefaces";
+import DraggableWrapper from "../common/DraggableWrapper";
 
 function ContainerDraggable() {
-  const component: IBComponentObject = {
+  const component: IBComponentObjectDraggable = {
     name: "Container",
     id: generateID(),
     type: BComponentType.container,
@@ -20,12 +21,9 @@ function ContainerDraggable() {
   });
 
   return (
-    <div
-      ref={drag}
-      style={{ backgroundColor: "blue", opacity: isDragging ? 0.5 : 1 }}
-    >
-      Container Draggable
-    </div>
+    <DraggableWrapper>
+      <div ref={drag}>Container</div>
+    </DraggableWrapper>
   );
 }
 

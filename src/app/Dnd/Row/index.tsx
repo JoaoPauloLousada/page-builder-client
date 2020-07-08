@@ -2,11 +2,12 @@ import React from "react";
 import { useDrag } from "react-dnd";
 import DraggableTypes from "../DraggableTypes.enum";
 import BComponentType from "../../../components/bootstrap/enums/BComponentType.enum";
-import IBComponentObject from "../../../components/bootstrap/interfaces/IBComponentObject";
 import { generateID } from "../../../utils/id";
+import { IBComponentObjectDraggable } from "../intefaces";
+import DraggableWrapper from "../common/DraggableWrapper";
 
 function RowDragglabe() {
-  const component: IBComponentObject = {
+  const component: IBComponentObjectDraggable = {
     name: "Row",
     id: generateID(),
     type: BComponentType.row,
@@ -20,12 +21,9 @@ function RowDragglabe() {
   });
 
   return (
-    <div
-      ref={drag}
-      style={{ backgroundColor: "blue", opacity: isDragging ? 0.5 : 1 }}
-    >
-      Row Draggable
-    </div>
+    <DraggableWrapper>
+      <div ref={drag}>Row</div>
+    </DraggableWrapper>
   );
 }
 
