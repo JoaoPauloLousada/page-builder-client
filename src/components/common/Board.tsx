@@ -1,5 +1,6 @@
 import React, { ReactNode, useState } from "react";
 import TreeView from "./TreeView";
+import PropertyView from "./PropertyView";
 
 interface Props {
   canvas?: ReactNode;
@@ -9,6 +10,7 @@ interface Props {
 enum IActiveTab {
   COMPONENTS = "COMPONENTS",
   TREE = "TREE",
+  PROPERTIES = "PROPERTIES",
 }
 
 export default function Board({ canvas, componentsArea }: Props) {
@@ -20,53 +22,50 @@ export default function Board({ canvas, componentsArea }: Props) {
     setActiveTab(value);
   };
 
+  const Tab = ({ tabType, children }: any) => (
+    <li className="nav-item">
+      <a
+        className={`nav-link text-dark${
+          activeTab === tabType ? " active" : ""
+        }`}
+        href="/"
+        onClick={handleTabClick}
+        data-value={tabType}
+      >
+        {children}
+      </a>
+    </li>
+  );
+
   const Tabs = () => (
     <div className="tabs">
       <ul className="nav nav-tabs">
-        <li className="nav-item">
-          <a
-            className={`nav-link${
-              activeTab === IActiveTab.COMPONENTS ? " active" : ""
-            }`}
-            href="/"
-            onClick={handleTabClick}
-            data-value={IActiveTab.COMPONENTS}
-          >
-            COMPONENTS
-          </a>
-        </li>
-        <li className="nav-item">
-          <a
-            className={`nav-link${
-              activeTab === IActiveTab.TREE ? " active" : ""
-            }`}
-            href="/"
-            onClick={handleTabClick}
-            data-value={IActiveTab.TREE}
-          >
-            TREE
-          </a>
-        </li>
+        <Tab tabType={IActiveTab.COMPONENTS}>{IActiveTab.COMPONENTS}</Tab>
+        <Tab tabType={IActiveTab.TREE}>{IActiveTab.TREE}</Tab>
+        <Tab tabType={IActiveTab.PROPERTIES}>{IActiveTab.PROPERTIES}</Tab>
       </ul>
+    </div>
+  );
+
+  const Area = ({ areaType, children }: any) => (
+    <div className={`${activeTab !== areaType ? " d-none" : ""}`}>
+      {children}
     </div>
   );
 
   const Areas = () => (
     <>
-      <div
-        className={`${activeTab !== IActiveTab.COMPONENTS ? " d-none" : ""}`}
-      >
-        {componentsArea}
-      </div>
-      <div
-        className={`w-100${activeTab !== IActiveTab.TREE ? " d-none" : ""} p-2`}
-      >
+      <Area areaType={IActiveTab.COMPONENTS}>{componentsArea}</Area>
+      <Area areaType={IActiveTab.TREE}>
         <TreeView />
-      </div>
+      </Area>
+      <Area areaType={IActiveTab.PROPERTIES}>
+        <PropertyView />
+      </Area>
     </>
   );
 
-  const CanvasArea = () => <div className="col-8">{canvas}</div>;
+  const CanvasArea = () => <div className="col-8 p-0">{canvas}</div>;
 
   const TabsArea = () => (
     <div className=" col-4 tabsArea">

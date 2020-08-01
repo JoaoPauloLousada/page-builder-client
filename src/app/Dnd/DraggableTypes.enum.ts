@@ -1,5 +1,6 @@
 enum DraggableTypes {
-  GRID = 'GRID'
+  GRID = "GRID",
+  TYPOGRAHPY = "TYPOGRAHPY",
 }
 
-export default DraggableTypes
+export default DraggableTypes;

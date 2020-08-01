@@ -2,7 +2,10 @@ import React, { useCallback } from "react";
 import { IoIosRemoveCircleOutline } from "react-icons/io";
 import IBComponentObject from "../../../bootstrap/interfaces/IBComponentObject";
 import { useDispatch, useSelector } from "react-redux";
-import { removeComponent } from "../../../../store/components";
+import {
+  removeComponent,
+  updateSelectedComponent,
+} from "../../../../store/components";
 import { getComponent } from "../../../../store/components/helper";
 import { RootState } from "../../../../store/rootReducer";
 interface IBranchProps {
@@ -19,10 +22,17 @@ const Branch = ({ component }: IBranchProps) => {
     dispatch(removeComponent(component.id));
   }, [component.id, dispatch]);
 
+  const selectComponent = useCallback(() => {
+    dispatch(updateSelectedComponent(component.id));
+  }, [component, dispatch]);
+
   return (
     <div>
-      <div className="d-flex justify-content-between align-items-center py-1">
-        <div>{component.name}</div>
+      <div
+        className="d-flex justify-content-between align-items-center py-1"
+        onClick={selectComponent}
+      >
+        <div className="flex-grow-1">{component.name}</div>
         <button className="btn btn-outline-danger btn-sm" onClick={remove}>
           <IoIosRemoveCircleOutline />
         </button>

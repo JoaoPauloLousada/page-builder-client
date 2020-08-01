@@ -21,7 +21,7 @@ const Col: React.FC<Props> = ({
   const classes = getClasses(xs, sm, md, lg, xl);
 
   const [{ isOver, ...collectedProps }, drop] = useDrop({
-    accept: DraggableTypes.GRID,
+    accept: [DraggableTypes.GRID, DraggableTypes.TYPOGRAHPY],
     drop: (e: { type: string; component: IBComponentObject }, m) => {
       if (!droppable) return;
       if (!m.didDrop()) {

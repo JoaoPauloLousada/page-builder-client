@@ -3,11 +3,12 @@ import ColDraggable from "../../../app/Dnd/Col";
 import RowDragglabe from "../../../app/Dnd/Row";
 import ContainerDraggable from "../../../app/Dnd/Container";
 import { generateID } from "../../../utils/id";
+import TypographyDragglabe from "../../../app/Dnd/Typography";
 
 const draggableComponents = [
   {
     id: generateID(),
-    component: ColDraggable,
+    component: ContainerDraggable,
   },
   {
     id: generateID(),
@@ -15,7 +16,11 @@ const draggableComponents = [
   },
   {
     id: generateID(),
-    component: ContainerDraggable,
+    component: ColDraggable,
+  },
+  {
+    id: generateID(),
+    component: TypographyDragglabe,
   },
 ];
 

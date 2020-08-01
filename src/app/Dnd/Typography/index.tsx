@@ -1,22 +1,20 @@
 import React from "react";
-import { generateID } from "../../../utils/id";
-import BComponentType from "../../../components/bootstrap/enums/BComponentType.enum";
 import { useDrag } from "react-dnd";
 import DraggableTypes from "../DraggableTypes.enum";
+import BComponentType from "../../../components/bootstrap/enums/BComponentType.enum";
+import { generateID } from "../../../utils/id";
 import { IBComponentObjectDraggable } from "../intefaces";
 import DraggableWrapper from "../common/DraggableWrapper";
-import { createGridProperties } from "../../../components/bootstrap/dataStructures/createGridProperties";
 
-function ContainerDraggable() {
+export default function TypographyDragglabe() {
   const component: IBComponentObjectDraggable = {
-    name: "Container",
+    name: "Typography",
     id: generateID(),
-    type: BComponentType.container,
-    properties: createGridProperties(),
+    type: BComponentType.typography,
   };
 
   const [{ isDragging }, drag] = useDrag({
-    item: { type: DraggableTypes.GRID, component },
+    item: { type: DraggableTypes.TYPOGRAHPY, component },
     collect: (monitor) => ({
       isDragging: !!monitor.isDragging(),
     }),
@@ -24,9 +22,7 @@ function ContainerDraggable() {
 
   return (
     <DraggableWrapper>
-      <div ref={drag}>Container</div>
+      <div ref={drag}>Typography</div>
     </DraggableWrapper>
   );
 }
-
-export default ContainerDraggable;
