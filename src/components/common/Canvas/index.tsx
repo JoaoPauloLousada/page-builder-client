@@ -51,7 +51,6 @@ export default function Canvas() {
 
   useEffect(() => {
     // @ts-ignore
-    console.log("canvasRef", canvasRef.current.clientWidth, eventListener);
     resize();
     // @ts-ignore
     window.addEventListener("resize", eventListener);
