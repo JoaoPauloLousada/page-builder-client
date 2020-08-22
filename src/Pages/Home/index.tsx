@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "../../store/rootReducer";
 import { UIFrameworkEnum } from "../../app/enums";
 
-export default function HomePage() {
+function HomePage() {
   const {
     config: { UIFramework },
   } = useSelector((state: RootState) => state);
@@ -17,3 +17,5 @@ export default function HomePage() {
 
   return <Board canvas={<Canvas />} componentsArea={ComponentArea} />;
 }
+
+export default React.memo(HomePage);

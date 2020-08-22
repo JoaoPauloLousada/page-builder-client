@@ -1,10 +1,28 @@
-import React, { useMemo, useState, useEffect, useRef } from "react";
+import React, { useMemo } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../../../store/rootReducer";
 import { getComponent } from "../../../store/components/helper";
 import { updateComponentProperty } from "../../../store/components";
 
-export default function PropertyView() {
+const Property = React.memo(({ property, objKey, onChange }: any) => {
+  return (
+    <div className="mt-3">
+      <div className="text-uppercase">{property.name}:</div>
+
+      <div className="input-group mb-3">
+        <input
+          name={objKey}
+          type="text"
+          className="form-control"
+          onChange={onChange}
+          value={property.value}
+        />
+      </div>
+    </div>
+  );
+});
+
+function PropertyView() {
   const dispatch = useDispatch();
   const { components, selectedComponent } = useSelector(
     (state: RootState) => state.components
@@ -26,24 +44,6 @@ export default function PropertyView() {
     dispatch(updateComponentProperty(payload));
   };
 
-  const Property = ({ property, objKey }: any) => {
-    return (
-      <div className="mt-3">
-        <div className="text-uppercase">{property.name}:</div>
-
-        <div className="input-group mb-3">
-          <input
-            name={objKey}
-            type="text"
-            className="form-control"
-            onChange={handlePropertyChange}
-            value={property.value}
-          />
-        </div>
-      </div>
-    );
-  };
-
   return (
     <div>
       {!!component.properties &&
@@ -52,8 +52,11 @@ export default function PropertyView() {
             key={key}
             property={component.properties[key]}
             objKey={key}
+            onChange={handlePropertyChange}
           />
         ))}
     </div>
   );
 }
+
+export default React.memo(PropertyView);
