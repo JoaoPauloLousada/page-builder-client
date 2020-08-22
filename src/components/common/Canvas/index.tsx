@@ -14,7 +14,6 @@ import IBComponentObject from "../../bootstrap/interfaces/IBComponentObject";
 import { updateComponents } from "../../../store/components";
 import DraggableTypes from "../../../app/Dnd/DraggableTypes.enum";
 import { getFirstLevelNodes } from "../../../store/components/helper";
-import { useEventListener } from "../../../utils/useEventListener";
 
 export default function Canvas() {
   const { components } = useSelector((state: RootState) => state.components);

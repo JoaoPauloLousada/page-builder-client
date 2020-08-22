@@ -6,6 +6,7 @@ import IBComponentObject from "../interfaces/IBComponentObject";
 import DraggableTypes from "../../../app/Dnd/DraggableTypes.enum";
 import { updateComponents } from "../../../store/components";
 import { editModeStyle } from "../../../utils/style";
+import { mergeAll } from "../../../utils/objectsUtil";
 
 const Container: React.FC<Props> = ({
   children,
@@ -13,6 +14,7 @@ const Container: React.FC<Props> = ({
   customClass,
   data_key,
   droppable = true,
+  customStyle = {},
 }: Props) => {
   const classes = React.useMemo(() => getClasses(customClass, fluid), [
     customClass,
@@ -36,7 +38,11 @@ const Container: React.FC<Props> = ({
   });
 
   return (
-    <div className={classes} ref={drop} style={editModeStyle()}>
+    <div
+      className={classes}
+      ref={drop}
+      style={mergeAll(editModeStyle(), customStyle)}
+    >
       {children}
     </div>
   );

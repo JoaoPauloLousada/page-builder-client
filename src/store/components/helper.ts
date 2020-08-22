@@ -66,3 +66,17 @@ export const add = (
 
   return [...tree, component];
 };
+
+export const getStyleFromProperties = (properties: any) => {
+  console.log("INIT getStyleFromProperties", properties);
+  if (!properties) return {};
+  const keys = Object.keys(properties);
+  const styles: any = {};
+  keys.forEach((key) => {
+    if (properties[key].value && properties[key].value !== "") {
+      styles[key] = properties[key].value;
+    }
+  });
+  console.log("getStyleFromProperties", styles);
+  return styles;
+};
