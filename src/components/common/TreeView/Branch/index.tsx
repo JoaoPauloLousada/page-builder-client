@@ -29,7 +29,7 @@ const Branch = ({ component }: IBranchProps) => {
   return (
     <div>
       <div
-        className="d-flex justify-content-between align-items-center py-1"
+        className="d-flex justify-content-between align-items-center py-1 cursor-pointer"
         onClick={selectComponent}
       >
         <div className="flex-grow-1">{component.name}</div>
