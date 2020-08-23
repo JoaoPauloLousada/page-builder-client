@@ -76,6 +76,5 @@ export const getStyleFromProperties = (properties: any) => {
       styles[key] = properties[key].value;
     }
   });
-  console.log("getStyleFromProperties", styles);
   return styles;
 };

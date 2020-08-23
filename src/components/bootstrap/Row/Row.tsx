@@ -6,12 +6,14 @@ import { useDispatch } from "react-redux";
 import DraggableTypes from "../../../app/Dnd/DraggableTypes.enum";
 import { DropTargetMonitor, useDrop } from "react-dnd";
 import { editModeStyle } from "../../../utils/style";
+import { mergeAll } from "../../../utils/objectsUtil";
 
 const Row: React.FC<Props> = ({
   children,
   customClass,
   data_key,
   droppable = true,
+  customStyle = {},
 }: Props) => {
   const dispatch = useDispatch();
 
@@ -30,7 +32,11 @@ const Row: React.FC<Props> = ({
   });
 
   return (
-    <div className={getClasses(customClass)} ref={drop} style={editModeStyle()}>
+    <div
+      className={getClasses(customClass)}
+      ref={drop}
+      style={mergeAll(editModeStyle(), customStyle)}
+    >
       {children}
     </div>
   );

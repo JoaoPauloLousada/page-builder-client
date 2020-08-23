@@ -5,12 +5,14 @@ import BComponentType from "../../../components/bootstrap/enums/BComponentType.e
 import { generateID } from "../../../utils/id";
 import { IBComponentObjectDraggable } from "../intefaces";
 import DraggableWrapper from "../common/DraggableWrapper";
+import { createGridProperties } from "../../../components/bootstrap/dataStructures/createGridProperties";
 
 function RowDragglabe() {
   const component: IBComponentObjectDraggable = {
     name: "Row",
     id: generateID(),
     type: BComponentType.row,
+    properties: createGridProperties(),
   };
 
   const [{ isDragging }, drag] = useDrag({

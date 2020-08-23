@@ -5,6 +5,7 @@ export interface Props {
   customClass?: string;
   data_key?: string;
   droppable?: boolean;
+  customStyle?: object;
 }
 
 export const getClasses = (customClass?: string): string =>

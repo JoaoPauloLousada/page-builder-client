@@ -9,6 +9,7 @@ export interface Props {
   xl?: number;
   data_key?: string;
   droppable?: boolean;
+  customStyle?: object;
 }
 
 export const classPrefix = ["", "sm-", "md-", "lg-", "xl-"];
