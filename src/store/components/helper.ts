@@ -68,7 +68,6 @@ export const add = (
 };
 
 export const getStyleFromProperties = (properties: any) => {
-  console.log("INIT getStyleFromProperties", properties);
   if (!properties) return {};
   const keys = Object.keys(properties);
   const styles: any = {};
