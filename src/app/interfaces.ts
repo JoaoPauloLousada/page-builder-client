@@ -29,3 +29,8 @@ export interface ITypographyProperties extends ISpacingProperties {
   variant: string;
   text: string;
 }
+
+export interface IPage {
+  id: string;
+  name: string;
+}

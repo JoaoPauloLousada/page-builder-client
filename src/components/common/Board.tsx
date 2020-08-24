@@ -1,6 +1,7 @@
 import React, { ReactNode, useState } from "react";
 import TreeView from "./TreeView";
 import PropertyView from "./PropertyView";
+import PagesView from "./PagesView";
 
 interface Props {
   canvas?: ReactNode;
@@ -11,6 +12,7 @@ enum IActiveTab {
   COMPONENTS = "COMPONENTS",
   TREE = "TREE",
   PROPERTIES = "PROPERTIES",
+  PAGES = "PAGES",
 }
 
 const Area = React.memo(({ areaType, children, activeTab }: any) => (
@@ -31,6 +33,9 @@ const Areas = React.memo(({ activeTab, componentsArea }: AreasProps) => (
     </Area>
     <Area areaType={IActiveTab.PROPERTIES} activeTab={activeTab}>
       <PropertyView />
+    </Area>
+    <Area areaType={IActiveTab.PAGES} activeTab={activeTab}>
+      <PagesView />
     </Area>
   </>
 ));
@@ -76,6 +81,13 @@ const Tabs = React.memo(({ activeTab, handleTabClick }: any) => (
         handleTabClick={handleTabClick}
       >
         {IActiveTab.PROPERTIES}
+      </Tab>
+      <Tab
+        tabType={IActiveTab.PAGES}
+        activeTab={activeTab}
+        handleTabClick={handleTabClick}
+      >
+        {IActiveTab.PAGES}
       </Tab>
     </ul>
   </div>

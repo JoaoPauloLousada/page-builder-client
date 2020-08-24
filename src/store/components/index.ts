@@ -13,7 +13,7 @@ const INITIAL_STATE: IComponentsState = {
 };
 
 const componentsSlice = createSlice({
-  name: "ui",
+  name: "components",
   initialState: INITIAL_STATE,
   reducers: {
     updateComponents(state, action: PayloadAction<IBComponentObject>) {
