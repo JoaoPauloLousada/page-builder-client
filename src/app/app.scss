@@ -1,0 +1,19 @@
+@import "~bootstrap/scss/bootstrap";
+@import "./styles/canvas.scss";
+
+html,
+body,
+#root,
+.App {
+  height: 100%;
+  width: 100%;
+}
+.cursor-grab {
+  cursor: grab;
+}
+.cursor-pointer {
+  cursor: pointer;
+}
+.branch-selected {
+  background-color: rgba(0, 0, 0, 0.05);
+}
