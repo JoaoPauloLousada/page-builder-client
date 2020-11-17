@@ -1,7 +1,7 @@
 import React, { useCallback, useState, useEffect } from "react";
 import { IoIosRemoveCircleOutline } from "react-icons/io";
-import IBComponentObject from "../../../../bootstrap-module/components/bootstrap/interfaces/IBComponentObject";
 import { useDispatch, useSelector } from "react-redux";
+import IBComponentObject from "../../../../bootstrap-module/components/interfaces/IBComponentObject";
 import {
   removeComponent,
   updateSelectedComponent,

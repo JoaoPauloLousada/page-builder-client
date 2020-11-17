@@ -1,12 +1,12 @@
 import React from "react";
 import { Props, getClasses } from "./RowHelper";
-import IBComponentObject from "../interfaces/IBComponentObject";
-import { updateComponents } from "../../../../store/components";
 import { useDispatch } from "react-redux";
-import DraggableTypes from "../../../../app/Dnd/DraggableTypes.enum";
 import { DropTargetMonitor, useDrop } from "react-dnd";
-import { editModeStyle } from "../../../../utils/style";
-import { mergeAll } from "../../../../utils/objectsUtil";
+import DraggableTypes from "../../../app/Dnd/DraggableTypes.enum";
+import IBComponentObject from "../interfaces/IBComponentObject";
+import { updateComponents } from "../../../store/components";
+import { editModeStyle } from "../../../utils/style";
+import { mergeAll } from "../../../utils/objectsUtil";
 
 const Row: React.FC<Props> = ({
   children,

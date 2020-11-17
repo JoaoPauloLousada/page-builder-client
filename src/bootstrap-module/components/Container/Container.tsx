@@ -3,10 +3,10 @@ import { getClasses, Props } from "./ContainerHelper";
 import { useDispatch } from "react-redux";
 import { useDrop, DropTargetMonitor } from "react-dnd";
 import IBComponentObject from "../interfaces/IBComponentObject";
-import DraggableTypes from "../../../../app/Dnd/DraggableTypes.enum";
-import { updateComponents } from "../../../../store/components";
-import { editModeStyle } from "../../../../utils/style";
-import { mergeAll } from "../../../../utils/objectsUtil";
+import DraggableTypes from "../../../app/Dnd/DraggableTypes.enum";
+import { updateComponents } from "../../../store/components";
+import { editModeStyle } from "../../../utils/style";
+import { mergeAll } from "../../../utils/objectsUtil";
 
 const Container: React.FC<Props> = ({
   children,

@@ -1,4 +1,4 @@
-import BComponentType from "../../bootstrap-module/components/bootstrap/enums/BComponentType.enum";
+import BComponentType from "../../bootstrap-module/components/enums/BComponentType.enum";
 
 export interface IBComponentObjectDraggable {
   name: string;

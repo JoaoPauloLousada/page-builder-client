@@ -2,8 +2,9 @@ import React from "react";
 import { useDrop, DropTargetMonitor } from "react-dnd";
 import DraggableTypes from "./DraggableTypes.enum";
 import { updateComponents } from "../../store/components";
-import IBComponentObject from "../../bootstrap-module/components/bootstrap/interfaces/IBComponentObject";
 import { useDispatch } from "react-redux";
+// import IBComponentObject from "../../bootstrap-module/components/interfaces/IBComponentObject";
+import IBComponentObject from "../../bootstrap-module/components/interfaces/IBComponentObject";
 
 export default function DroppableArea({ children }: any) {
   const dispatch = useDispatch();

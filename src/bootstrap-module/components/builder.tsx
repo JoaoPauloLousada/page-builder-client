@@ -1,10 +1,7 @@
 import React from "react";
 import BComponents from ".";
+import { getComponent, getStyleFromProperties } from "../../store/components/helper";
 import IBComponentObject from "./interfaces/IBComponentObject";
-import {
-  getComponent,
-  getStyleFromProperties,
-} from "../../../store/components/helper";
 
 export const createComponent = (
   comp: IBComponentObject,

@@ -1,6 +1,10 @@
-import { IGridProperties } from "../../../../app/interfaces";
+import {
+  IGridProperties,
+  ITypographyProperties,
+} from "./../../../app/interfaces";
+// import { IGridProperties } from "../../../../app/interfaces";
 import BComponentType from "../enums/BComponentType.enum";
-import { ITypographyProperties } from "../../../../app/interfaces";
+// import { ITypographyProperties } from "../../../../app/interfaces";
 
 interface IBComponentObject {
   id: string;

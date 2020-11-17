@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import IBComponentObject from "../../bootstrap-module/components/bootstrap/interfaces/IBComponentObject";
+import IBComponentObject from "../../bootstrap-module/components/interfaces/IBComponentObject";
 import { remove, add, getComponent } from "./helper";
 
 interface IComponentsState {
