@@ -1,9 +1,9 @@
 import React from "react";
-import ColDraggable from "../../../app/Dnd/Col";
-import RowDragglabe from "../../../app/Dnd/Row";
-import ContainerDraggable from "../../../app/Dnd/Container";
+import ColDraggable from "../../Dnd/Col";
 import { generateID } from "../../../utils/id";
 import TypographyDragglabe from "../../../app/Dnd/Typography";
+import ContainerDraggable from "../../Dnd/Container";
+import RowDragglabe from "../../Dnd/Row";
 
 const draggableComponents = [
   {

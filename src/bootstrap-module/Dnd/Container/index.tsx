@@ -1,17 +1,17 @@
 import React from "react";
-import { useDrag } from "react-dnd";
-import DraggableTypes from "../DraggableTypes.enum";
-import BComponentType from "../../../bootstrap-module/components/enums/BComponentType.enum";
 import { generateID } from "../../../utils/id";
-import { IBComponentObjectDraggable } from "../intefaces";
-import DraggableWrapper from "../common/DraggableWrapper";
+import BComponentType from "../../../bootstrap-module/components/enums/BComponentType.enum";
+import { useDrag } from "react-dnd";
 import { createGridProperties } from "../../../bootstrap-module/components/dataStructures/createGridProperties";
+import { IBComponentObjectDraggable } from "../../../app/Dnd/intefaces";
+import DraggableTypes from "../../../app/Dnd/DraggableTypes.enum";
+import DraggableWrapper from "../../../app/Dnd/common/DraggableWrapper";
 
-export default function ColDraggable() {
+function ContainerDraggable() {
   const component: IBComponentObjectDraggable = {
-    name: "Col",
+    name: "Container",
     id: generateID(),
-    type: BComponentType.col,
+    type: BComponentType.container,
     properties: createGridProperties(),
   };
 
@@ -24,7 +24,9 @@ export default function ColDraggable() {
 
   return (
     <DraggableWrapper>
-      <div ref={drag}>Col</div>
+      <div ref={drag}>Container</div>
     </DraggableWrapper>
   );
 }
+
+export default ContainerDraggable;
