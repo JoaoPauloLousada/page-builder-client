@@ -1,10 +1,10 @@
 import React from "react";
 import { useDrag } from "react-dnd";
 import DraggableTypes from "../DraggableTypes.enum";
-import BComponentType from "../../../bootstrap-module/components/enums/BComponentType.enum";
 import { generateID } from "../../../utils/id";
 import { IBComponentObjectDraggable } from "../intefaces";
 import DraggableWrapper from "../common/DraggableWrapper";
+import BComponentType from "../../../bootstrap-module/enums/BComponentType.enum";
 
 export default function TypographyDragglabe() {
   const component: IBComponentObjectDraggable = {

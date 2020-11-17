@@ -1,7 +1,7 @@
 import React from "react";
 import { useDrop, DropTargetMonitor } from "react-dnd";
 import { Props, getClasses } from "./ColHelper";
-import IBComponentObject from "../interfaces/IBComponentObject";
+import IBComponentObject from "../../interfaces/IBComponentObject";
 import { useDispatch } from "react-redux";
 import DraggableTypes from "../../../app/Dnd/DraggableTypes.enum";
 import { updateComponents } from "../../../store/components";

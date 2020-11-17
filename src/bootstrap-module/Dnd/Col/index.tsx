@@ -1,11 +1,11 @@
 import React from "react";
 import { useDrag } from "react-dnd";
 import DraggableTypes from "../../../app/Dnd/DraggableTypes.enum";
-import BComponentType from "../../components/enums/BComponentType.enum";
 import { generateID } from "../../../utils/id";
 import { IBComponentObjectDraggable } from "../../../app/Dnd/intefaces";
 import DraggableWrapper from "../../../app/Dnd/common/DraggableWrapper";
-import { createGridProperties } from "../../components/dataStructures/createGridProperties";
+import BComponentType from "../../enums/BComponentType.enum";
+import { createGridProperties } from "../../dataStructures/createGridProperties";
 
 export default function ColDraggable() {
   const component: IBComponentObjectDraggable = {

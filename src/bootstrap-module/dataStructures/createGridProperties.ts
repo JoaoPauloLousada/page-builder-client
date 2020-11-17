@@ -1,4 +1,4 @@
-import { IGridProperties } from "./../../../app/interfaces";
+import { IGridProperties } from "./../../app/interfaces";
 
 const defaultStringProp = {
   type: "string",

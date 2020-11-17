@@ -1,8 +1,8 @@
-import BComponentType from "./enums/BComponentType.enum";
 import Container from "./Container/Container";
 import Row from "./Row/Row";
 import Col from "./Col/Col";
 import Typography from "../../components/Typography";
+import BComponentType from "../enums/BComponentType.enum";
 
 const BComponents = {
   [BComponentType.container]: Container,

@@ -3,7 +3,7 @@ import { Props, getClasses } from "./RowHelper";
 import { useDispatch } from "react-redux";
 import { DropTargetMonitor, useDrop } from "react-dnd";
 import DraggableTypes from "../../../app/Dnd/DraggableTypes.enum";
-import IBComponentObject from "../interfaces/IBComponentObject";
+import IBComponentObject from "../../interfaces/IBComponentObject";
 import { updateComponents } from "../../../store/components";
 import { editModeStyle } from "../../../utils/style";
 import { mergeAll } from "../../../utils/objectsUtil";

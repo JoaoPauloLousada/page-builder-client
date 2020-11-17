@@ -10,7 +10,7 @@ import { useSelector } from "react-redux";
 import { useDrop, DropTargetMonitor } from "react-dnd";
 import { useDispatch } from "react-redux";
 import { createComponent } from "../../../bootstrap-module/components/builder";
-import IBComponentObject from "../../../bootstrap-module/components/interfaces/IBComponentObject";
+import IBComponentObject from "../../../bootstrap-module/interfaces/IBComponentObject";
 import { updateComponents } from "../../../store/components";
 import DraggableTypes from "../../../app/Dnd/DraggableTypes.enum";
 import { getFirstLevelNodes } from "../../../store/components/helper";
