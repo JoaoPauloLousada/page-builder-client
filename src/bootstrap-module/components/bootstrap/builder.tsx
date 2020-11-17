@@ -4,7 +4,7 @@ import IBComponentObject from "./interfaces/IBComponentObject";
 import {
   getComponent,
   getStyleFromProperties,
-} from "../../store/components/helper";
+} from "../../../store/components/helper";
 
 export const createComponent = (
   comp: IBComponentObject,

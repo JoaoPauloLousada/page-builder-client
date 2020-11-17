@@ -1,7 +1,7 @@
 import React, { useMemo } from "react";
 import Board from "../../components/common/Board";
 import Canvas from "../../components/common/Canvas";
-import BComponentsArea from "../../components/bootstrap/BComponentsArea";
+import BComponentsArea from "../../bootstrap-module/components/bootstrap/BComponentsArea";
 import { useSelector } from "react-redux";
 import { RootState } from "../../store/rootReducer";
 import { UIFrameworkEnum } from "../../app/enums";

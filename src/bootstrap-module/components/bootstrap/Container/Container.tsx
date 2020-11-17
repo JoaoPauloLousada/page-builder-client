@@ -1,20 +1,26 @@
-import React from "react";
-import { Props, getClasses } from "./RowHelper";
-import IBComponentObject from "../interfaces/IBComponentObject";
-import { updateComponents } from "../../../store/components";
+import React, { useEffect } from "react";
+import { getClasses, Props } from "./ContainerHelper";
 import { useDispatch } from "react-redux";
-import DraggableTypes from "../../../app/Dnd/DraggableTypes.enum";
-import { DropTargetMonitor, useDrop } from "react-dnd";
-import { editModeStyle } from "../../../utils/style";
-import { mergeAll } from "../../../utils/objectsUtil";
+import { useDrop, DropTargetMonitor } from "react-dnd";
+import IBComponentObject from "../interfaces/IBComponentObject";
+import DraggableTypes from "../../../../app/Dnd/DraggableTypes.enum";
+import { updateComponents } from "../../../../store/components";
+import { editModeStyle } from "../../../../utils/style";
+import { mergeAll } from "../../../../utils/objectsUtil";
 
-const Row: React.FC<Props> = ({
+const Container: React.FC<Props> = ({
   children,
+  fluid,
   customClass,
   data_key,
   droppable = true,
   customStyle = {},
 }: Props) => {
+  const classes = React.useMemo(() => getClasses(customClass, fluid), [
+    customClass,
+    fluid,
+  ]);
+
   const dispatch = useDispatch();
 
   const [{ isOver, ...collectedProps }, drop] = useDrop({
@@ -33,7 +39,7 @@ const Row: React.FC<Props> = ({
 
   return (
     <div
-      className={getClasses(customClass)}
+      className={classes}
       ref={drop}
       style={mergeAll(editModeStyle(), customStyle)}
     >
@@ -42,4 +48,4 @@ const Row: React.FC<Props> = ({
   );
 };
 
-export default Row;
+export default Container;

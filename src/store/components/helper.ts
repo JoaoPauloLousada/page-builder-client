@@ -1,5 +1,5 @@
-import IBComponentObject from "../../components/bootstrap/interfaces/IBComponentObject";
-import BComponentType from "../../components/bootstrap/enums/BComponentType.enum";
+import IBComponentObject from "../../bootstrap-module/components/bootstrap/interfaces/IBComponentObject";
+import BComponentType from "../../bootstrap-module/components/bootstrap/enums/BComponentType.enum";
 
 const hasChildren = (obj: IBComponentObject): boolean =>
   !!obj.children && obj.children.length > 0;
